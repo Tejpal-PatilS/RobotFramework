@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.2 on win32)" generated="20230726 13:33:51.405" rpa="false" schemaversion="3">
+<suite id="s1" name="SLProductsTest" source="D:\CodingFramewoeks\RobotFramework\POMTestCases\SLProductsTest.robot">
+<test id="s1-t1" name="LoginTest" line="13">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${SiteUel}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230726 13:33:51.646" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<msg timestamp="20230726 13:33:51.651" level="INFO">Executing: D:\CodingFramewoeks\RobotFramework\venv\Lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe --browser chrome --output json</msg>
+<status status="PASS" starttime="20230726 13:33:51.645" endtime="20230726 13:33:54.182"/>
+</kw>
+<kw name="Enter UserName Password" library="SLProductsKeywords">
+<arg>${user}</arg>
+<arg>${pwd}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${txt_loginUserName}</arg>
+<arg>${UserName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230726 13:33:54.186" level="INFO">Typing text 'standard_user' into text field 'name:user-name'.</msg>
+<status status="PASS" starttime="20230726 13:33:54.185" endtime="20230726 13:33:54.362"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${txt_loginPass}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230726 13:33:54.364" level="INFO">Typing text 'secret_sauce' into text field 'name:password'.</msg>
+<status status="PASS" starttime="20230726 13:33:54.362" endtime="20230726 13:33:54.477"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${click_loginBtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230726 13:33:54.478" level="INFO">Clicking button 'name:login-button'.</msg>
+<status status="PASS" starttime="20230726 13:33:54.478" endtime="20230726 13:33:54.571"/>
+</kw>
+<status status="PASS" starttime="20230726 13:33:54.184" endtime="20230726 13:33:54.572"/>
+</kw>
+<kw name="Verify Success Login" library="SLProductsKeywords">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Swag Labs</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20230726 13:33:54.579" level="INFO">Page title is 'Swag Labs'.</msg>
+<status status="PASS" starttime="20230726 13:33:54.572" endtime="20230726 13:33:54.579"/>
+</kw>
+<status status="PASS" starttime="20230726 13:33:54.572" endtime="20230726 13:33:54.580"/>
+</kw>
+<status status="PASS" starttime="20230726 13:33:51.644" endtime="20230726 13:33:54.580"/>
+</test>
+<test id="s1-t2" name="ProductTest" line="19">
+<kw name="Products Add &amp; verify cart" library="SLProductsKeywords">
+<kw name="Get Text" library="SeleniumLibrary">
+<arg>${verify_product_price}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20230726 13:33:54.582" endtime="20230726 13:33:54.612"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Get Text</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230726 13:33:54.612" endtime="20230726 13:33:54.613"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${click_product_backpack}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230726 13:33:54.613" level="INFO">Clicking button 'xpath://*[text()='Sauce Labs Backpack']/../../..//button'.</msg>
+<status status="PASS" starttime="20230726 13:33:54.613" endtime="20230726 13:33:54.681"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${click_cart_link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230726 13:33:54.681" endtime="20230726 13:33:54.711"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${click_cart_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20230726 13:33:54.711" level="INFO">Clicking link 'xpath://a[@class='shopping_cart_link']'.</msg>
+<status status="PASS" starttime="20230726 13:33:54.711" endtime="20230726 13:33:54.773"/>
+</kw>
+<status status="PASS" starttime="20230726 13:33:54.582" endtime="20230726 13:33:54.773"/>
+</kw>
+<status status="PASS" starttime="20230726 13:33:54.581" endtime="20230726 13:33:54.774"/>
+</test>
+<test id="s1-t3" name="Product Added To Cart" line="23">
+<kw name="Products Added in Cart" library="SLProductsKeywords">
+<kw name="Get Text" library="SeleniumLibrary">
+<arg>${verify_added_products}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20230726 13:33:54.775" endtime="20230726 13:33:54.801"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Element is added successfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230726 13:33:54.801" endtime="20230726 13:33:54.802"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${click_checkout_btn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230726 13:33:54.802" endtime="20230726 13:33:54.825"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${click_checkout_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230726 13:33:54.825" level="INFO">Clicking button 'name:checkout'.</msg>
+<status status="PASS" starttime="20230726 13:33:54.825" endtime="20230726 13:33:54.906"/>
+</kw>
+<status status="PASS" starttime="20230726 13:33:54.775" endtime="20230726 13:33:54.906"/>
+</kw>
+<status status="PASS" starttime="20230726 13:33:54.775" endtime="20230726 13:33:54.906"/>
+</test>
+<status status="PASS" starttime="20230726 13:33:51.406" endtime="20230726 13:33:54.908"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="SLProductsTest">SLProductsTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
